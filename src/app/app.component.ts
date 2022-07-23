@@ -12,6 +12,7 @@ export class AppComponent {
   newTodo:string;
   updateTodoName:string;
   myTodo:any;
+  incompletedTodo = this.todos.filter(s => s.isCompleted === false);
 
   saveTodo(){
     if(this.newTodo){
@@ -31,6 +32,7 @@ export class AppComponent {
 
   done(id:number){
     this.todos[id].isCompleted = !this.todos[id].isCompleted;
+    this.incompletedTodo = this.todos.filter(s => s.isCompleted === false);
     window.localStorage.setItem('myTodo',JSON.stringify(this.todos) ); 
   }
 
