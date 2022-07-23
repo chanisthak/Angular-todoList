@@ -12,6 +12,7 @@ export class AppComponent {
   newTodo:string;
   updateTodoName:string;
   myTodo:any;
+  checkEdit:boolean=false;
   incompletedTodo = this.todos.filter(s => s.isCompleted === false);
 
   saveTodo(){
@@ -41,9 +42,15 @@ export class AppComponent {
     window.localStorage.setItem('myTodo',JSON.stringify(this.todos) ); 
   }
   edit(id:number){
-    this.todos[id].isEditing = true;
-    this.updateTodoName = this.todos[id].name;
-    window.localStorage.setItem('myTodo',JSON.stringify(this.todos) ); 
+    if(this.checkEdit === false){
+      this.checkEdit = true;
+      this.todos[id].isEditing = true;
+      this.updateTodoName = this.todos[id].name;
+      window.localStorage.setItem('myTodo',JSON.stringify(this.todos) );
+    }
+     else {
+      alert('Please finish edit');
+     }
   }
   updateTodo(id:number){
     if(this.updateTodoName) {
@@ -51,6 +58,7 @@ export class AppComponent {
       this.todos[id].isEditing = false;
       window.localStorage.setItem('myTodo',JSON.stringify(this.todos) );
       this.todos = JSON.parse(localStorage['myTodo']);
+      this.checkEdit = false;
     }
      else {
       alert('Edit can not be NULL')
