@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+.done {
+    text-decoration: line-through;
+}
+ul {
+    padding:0px 10px !important;
+}
+.card  {
+    padding:8px;
+    border-radius: 7px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border:none;
+}
+ul li div:nth-last-child(-n+2) {
+    align-items: center;
+    justify-content: end;
+    display: flex;
+}
+
+.form-control:focus, .btn-check:focus + .btn, .btn:focus{
+    box-shadow: none !important;
+}
+
+.input-group {
+    border-bottom:1px solid rgb(198, 198, 255);
+}
+
+svg#bg {
+    background-attachment: fixed;
+    width: 100%;
+    height: calc(100vh - 57px);
+    position: absolute;
+    z-index: -10;
+  }
