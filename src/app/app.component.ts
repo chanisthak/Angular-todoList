@@ -67,5 +67,6 @@ export class AppComponent {
     cancelEdit(id:number){
       this.todos[id].isEditing = false;
       window.localStorage.setItem('myTodo',JSON.stringify(this.todos) ); 
+      this.checkEdit = false;
     }
 }
